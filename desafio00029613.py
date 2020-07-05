@@ -37,11 +37,17 @@ img24= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\Desaf
 img25= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\q2.png"))
 img26= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\q3.png"))
 img27= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\emsam.png"))
+img28= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\ensam1.png"))
+img29= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\ensam2.png"))
+img30= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\ccontorno.png"))
+img31= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\ccontorno2.png"))
+img32= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\ccontorno3.png"))
+img33= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\bye.png"))
+img34= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\forward.png"))
+img35= ImageTk.PhotoImage(Image.open("C:\\Users\\ADMIN\\Desktop\\Simu2020\\DesafioDP00029613\\back.png"))
 
-
-
-
-image_list= [img1, img2, img3,img4, img5, img6, img7, img8, img9, img10, img11, img12, img13,img14, img15,img16,img17,img18,img19,img20,img21,img22, img23,img24, img25, img26, img27]
+image_list= [img1, img2, img3,img4, img5, img6, img7, img8, img9, img10, img11, img12, img13,img14, img15
+,img16,img17,img18,img19,img20,img21,img22, img23,img24, img25, img26, img27, img28, img29, img30, img31, img32, img33]
 
 my_label = Label(mainFrame, image= img1)
 my_label.grid(row=0, column= 0, columnspan= 3)
@@ -56,11 +62,13 @@ def forward(image_number):
 
     my_label.grid_forget()
     my_label = Label(mainFrame, image= image_list[image_number - 1])
-    button_forward= Button(mainFrame, text=">>", command=lambda: forward(image_number+1))
-    button_back= Button(mainFrame, text="<<", command=lambda:back(image_number - 1))
+    button_forward= Button(mainFrame, image= img34, command=lambda: forward(image_number+1))
+    button_back= Button(mainFrame, image=img35, command=lambda:back(image_number - 1))
+    button_back.config(bg="#5274d8")
+    button_forward.config(bg="#5274d8")
     
-    if image_number == 27:
-        button_forward= Button(mainFrame, text= ">>", state= DISABLED)
+    if image_number == 33:
+        button_forward= Button(mainFrame, image= img34, state= DISABLED)
     
     my_label.grid(row=0, column= 0, columnspan= 3)
     button_back.grid(row=1, column=0)
@@ -75,24 +83,26 @@ def back(image_number):
 
     my_label.grid_forget()
     my_label = Label(mainFrame, image= image_list[image_number - 1])
-    button_forward= Button(mainFrame, text=">>", command=lambda: forward(image_number+1))
-    button_back= Button(mainFrame, text="<<", command=lambda:back(image_number - 1))
+    button_forward= Button(mainFrame, image= img34, command=lambda: forward(image_number+1))
+    button_back= Button(mainFrame, image= img35, command=lambda:back(image_number - 1))
     
     if image_number == 1:
-        button_back= Button(mainFrame, text= "<<", state= DISABLED)
+        button_back= Button(mainFrame, image= img35, state= DISABLED)
     
     my_label.grid(row=0, column= 0, columnspan= 3)
     button_back.grid(row=1, column=0)
     button_forward.grid(row=1, column=2)
+    button_forward.config(bg="#5274d8")
+    button_back.config(bg="#5274d8")
 
 
 
-button_back= Button(mainFrame, text="<<", command= back, state= DISABLED)
-#button_exit= Button(mainFrame, text="Exit")
-button_forward= Button(mainFrame, text=">>", command= lambda:forward(2))
+button_back= Button(mainFrame, image= img35, command= back, state= DISABLED)
 
+button_forward= Button(mainFrame,image= img34 , command= lambda:forward(2))
+button_forward.config(bg="#5274d8")
 button_back.grid(row=1, column=0)
-#button_exit.grid(row=1, column=1)
+button_back.config(bg="#5274d8")
 button_forward.grid(row=1, column=2)
 
 
